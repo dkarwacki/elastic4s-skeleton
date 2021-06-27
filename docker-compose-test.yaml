@@ -1,0 +1,13 @@
+version: '2.1'
+services:
+  elasticsearch:
+    image: elasticsearch:7.13.2
+    environment:
+      - discovery.type=single-node
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    ports:
+      - 39227:9200
